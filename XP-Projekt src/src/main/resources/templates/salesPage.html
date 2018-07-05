@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    <link rel="stylesheet" href="" th:href="@{salespagestyle.css}"/>
+
+    <title>Sales page</title>
+</head>
+<body>
+<div th:replace="fragments/menubar::menubar"/>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-7">
+            <h2>Produkter</h2>
+
+            <div class="productlist">
+
+                <div th:each="product : ${productList}" class="product">
+                    <form action="/addProduct" method="post">
+                        <input type="hidden" th:value="${product.id}" th:name="id"/>
+                        <button type="submit" value="hej">
+                        </button>
+                    </form>
+                    <img th:src="${product.productImagePath}" src="http://3.bp.blogspot.com/-f5if0xq5HRg/UAWPDTzw9BI/AAAAAAAAFeg/yjimmpRlw8Q/s320/1.jpg" alt="Billede af produkt"/>
+                    <h4 th:text="${product.name}">Popkorn</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 salesCart">
+            <h2>Indkøbskurv</h2>
+            <div th:each="salesCartItem : ${salesCartList}" class="salesCartItem">
+                <form action="/removeProduct" method="post">
+                    <input type="hidden" name="id" th:value="${salesCartItem.product.id}"/>
+                    <input class="deleteButton" type="submit" value="X"/>
+                </form>
+                <h4 th:text="${salesCartItem.product.name}">Popcorn-bil</h4>
+                <p th:text="${salesCartItem.amount}" class="noOfItems">2</p>
+                <p class="noOfItemsLabel">stk</p>
+                <p th:text="${#numbers.formatDecimal(salesCartItem.getSubTotal(), 0, 2)}" class="price">10</p>
+                <p class="crowns">kr</p>
+            </div>
+
+            <div class="salesCartTotal">
+                <h5>Total:</h5>
+                <p th:text="${#numbers.formatDecimal(totalPrice, 0, 2)}" class="price">200</p>
+                <p class="crowns">kr</p>
+            </div>
+
+            <!--hacky class-->
+            <form id="buyForm" action="/checkout" method="post">
+                <input class="col-sm-12 buyButton" type="submit" form="buyForm" VALUE="Betal"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

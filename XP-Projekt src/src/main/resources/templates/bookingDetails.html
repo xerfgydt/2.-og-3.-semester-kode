@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    <title>Adventure Alley</title>
+</head>
+<body>
+<!--<h2 align="center" th:text="${activity.name}"></h2>-->
+<div th:replace="fragments/menubar::menubar"/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <h2 th:text="'Detaljer for: ' + ${booking.description}">Detaljer for: firma tmj</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <table class="table" >
+                <tr>
+                    <td>Aktivitet: </td>
+                    <td th:text="${activity.name}">Go cart</td>
+                </tr>
+                <tr>
+                    <td>Instruktør: </td>
+                    <td th:text="${booking.instructor.name}"></td>
+                </tr>
+                <tr>
+                    <td>Dato: </td>
+                    <td th:text="${booking.date}"> 11/4</td>
+                </tr>
+                <tr>
+                    <td>Antal deltager:  </td>
+                    <td th:text="${booking.numOfParticipants}">10</td>
+                </tr>
+                <tr>
+                    <td>Kontakt person:</td>
+                    <td th:utext="${customer.customerName} + '&lt;br&gt;' + ${customer.phone}">Casper flint <br/>22489704</td>
+                </tr>
+                <tr th:if="${customer.companyName != null}">
+                    <td>Firma:</td>
+                    <td th:text="${customer.companyName}">Novo nordisk</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

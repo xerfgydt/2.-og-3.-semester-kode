@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    <title>Edit booking</title>
+</head>
+<body>
+<div th:replace="fragments/menubar::menubar"/>
+
+<div class="container">
+    <h1>Rediger booking</h1>
+
+    <form th:action="@{/editBooking(id=${booking.id})}" th:method="post" th:object="${booking}">
+            <input type="hidden" th:field="*{id}"/>
+        <h3>Aktivitet</h3>
+        <select class="form-control dropdown" th:field="*{activity.name}">
+            <option th:value="*{activity.name}" th:text="*{activity.name}"></option>
+            <option th:each="activity : ${activities}" th:text="${activity.name}"
+                    th:value="${activity.name}"></option>
+        </select>
+
+        <h5>Instruktør</h5>
+        <select class="form-control dropdown" th:field="*{instructor.name}">
+            <option th:value="*{instructor.name}" th:text="*{instructor.name}"></option>
+            <option th:each="ins : ${instructors}" th:text="${ins.name}"
+                    th:value="${ins.name}"></option>
+        </select>
+
+
+        <h7>Antal deltagere</h7>
+        <input type="number" th:field="*{numOfParticipants}" required="required"/>
+
+        <h7>Dato og tid</h7>
+        <input type="datetime-local" required="required" th:field="*{date}"/>
+        <label for="description">Beskrivelse: </label>
+        <textarea maxlength="500" required="required" class="form-control" id="description" th:field="*{description}" style="width: 60%"
+                  rows="6"></textarea>
+        <h3>Kunde oplysninger</h3>
+        <div th:if="*{customer.companyName != 'null'}">
+            <h7>Firma navn:</h7>
+            <input type="text" required="required" th:field="*{customer.companyName}"/>
+        </div>
+        <h7>Kontaktperson:</h7>
+        <input type="hidden" th:field="*{customer.id}"/>
+
+        <input type="text" required="required" th:field="*{customer.customerName}"/>
+
+        <h7>Tlf:</h7>
+        <input type="text" required="required" th:field="*{customer.phone}"/>
+
+        <input type="submit" class="btn btn-success" name="action" value="Gem Ændringer"/>
+    </form>
+</div>
+</body>
+</html>

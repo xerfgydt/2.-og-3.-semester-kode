@@ -1,0 +1,31 @@
+body{
+    background-color: #1C1F24;
+}
+
+p, h1, h2, h3, a, form {
+    color: #CCCCCC;
+}
+
+.btn-success, .ny {
+    background-color: #004401;
+    color: #CCCCCC;
+}
+
+.btn-danger, .btn-danger:hover, .slet {
+    background-color: #780200;
+    color: #CCCCCC;
+}
+
+.btn-warning, .btn-warning:hover, .edit {
+    background-color: #aa6b00;
+    color: #CCCCCC;
+}
+
+.btn-primary {
+    background-color: #000c36;
+    color: #CCCCCC;
+    margin-top: 12px;
+}
+table{
+    color: white;
+}

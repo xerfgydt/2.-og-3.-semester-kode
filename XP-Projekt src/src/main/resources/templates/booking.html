@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    <meta charset="UTF-8"/>
+    <title>Opret en booking</title>
+</head>
+<body>
+<div th:replace="fragments/menubar::menubar"/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <h2>Opret Reservation</h2>
+
+            <form method="POST" action="/createB">
+                <!--<div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="Aktivites Navn"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="InstructorID" placeholder="Instruktør Navn"/>
+                </div>-->
+                <div class="form-group">
+                    <select th:name="actiName" class="form-control">
+                        <option value="">Vælg aktivitet</option>
+                        <option th:each="activities : ${activitylist}"
+                                th:value="${activities.name}"
+                                th:text="${activities.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select th:name="intName" class="form-control">
+                        <option value="">vælg Instruktør</option>
+                        <option th:each="instructors : ${instructorlist}"
+                                th:value="${instructors.name}"
+                                th:text="${instructors.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="numOfParticipants" placeholder="Antal deltagere"/>
+                </div>
+                <div class="form-group">
+                    <input type="datetime-local" class="form-control" name="date" placeholder="Dato"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="description" placeholder="Event"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="CustomerName" placeholder="Kunde Navn"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="companyName" placeholder="Firma Navn"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="phone" placeholder="Nummer"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Opret Reservation"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

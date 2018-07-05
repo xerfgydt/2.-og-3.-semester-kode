@@ -1,0 +1,142 @@
+.productlist {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    height: 200px;
+    width: 200px;
+    border: #780200 2px solid;
+    overflow: hidden;
+    margin: 7px;
+}
+
+.product img {
+    width: inherit;
+}
+
+.product h4 {
+    position: relative;
+    top: -120px;
+    text-align: center;
+    color: white;
+    background-color: rgba(55, 55, 55, 0.8);
+    height: 30px;
+    font-size: 25px;
+}
+
+.salesCartItem{
+    background-color: #434343;
+    border-bottom: #1C1F24 2px solid;
+}
+
+.salesCartItem h4,
+.salesCartItem p,
+.salesCartItem form,
+.salesCartTotal p,
+.salesCartTotal h5{
+    display: inline-block;
+    padding: 2px;
+    padding-left: 20px;
+    color: #CCCCCC;
+}
+
+.salesCartItem h4 {
+    font-style: italic;
+    width: 200px;
+    padding-left: 10px;
+}
+
+.salesCartItem form {
+    padding-left: 10px;
+}
+
+.salesCartItem p {
+    font-weight: bold;
+}
+
+p.noOfItems {
+    width: 61px;
+    //background-color: red;
+    padding-left: 0;
+    text-align: right;
+}
+
+p.noOfItemsLabel {
+    padding-left: 1px;
+    //background-color: green;
+}
+
+p.crowns {
+    //background-color: blue;
+    padding-left: 0px;
+}
+
+p.price {
+    //background-color: darkmagenta;
+    padding-left: 0;
+    width: 64px;
+    text-align: right;
+}
+.salesCartTotal p.price{
+    width: 296px;
+}
+
+div.salesCart {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 79px;
+
+}
+
+div.salesCartTotal{
+    background-color: whitesmoke;
+    height: 50px;
+}
+
+div.salesCartTotal > p.price {
+    width: 205px;
+}
+.salesCartTotal p,
+.salesCartTotal h5{
+    font-size: 32px;
+    margin: 0;
+    color: #1C1F24;
+}
+
+input.buyButton {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: 50px;
+    background-color: green;
+    color: white;
+    font-size: 30px;
+}
+
+input.deleteButton {
+    line-height: 0.5;
+    font-weight: bold;
+    margin: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 70px;
+    background-color: #b40200;
+    border-color: #b40200;
+    border-style: solid;
+}
+
+.salesCartItem form {
+
+}
+
+div.product > form > button {
+    display: block;
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    border-radius: 0;
+    z-index: 10;
+}

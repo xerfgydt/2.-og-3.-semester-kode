@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    <meta charset="UTF-8"/>
+    <title>Adventure Alley</title>
+</head>
+<body>
+    <div th:replace="fragments/menubar::menubar"/>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <img align="center" style="height: 200px"  th:src="@{http://2.bp.blogspot.com/-VbCQPfmfVWs/T7VXgRuxRSI/AAAAAAAARN8/s3aAnp6c3Mw/s1600/SkyScreamer12.jpg}" th:alt="@{http://2.bp.blogspot.com/-VbCQPfmfVWs/T7VXgRuxRSI/AAAAAAAARN8/s3aAnp6c3Mw/s1600/SkyScreamer12.jpg}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="text-center">Aktiviteter</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <table class="text-center" th:if="${activities.size() > 0}">
+                    <tr th:each="index : ${#numbers.sequence(0, activities.size(), 3)}">
+                        <td>
+                            <div th:if="${index lt activities.size()}">
+                                <a th:href="@{/activityPage(id=${index})}" class="btn-image"> <!-- Vælg hvor billede skal linke til her -->
+                                    <img th:src="${activities.get(index).getImagePath()}" th:alt="${activities.get(index).getImagePath()}" onclick=""
+                                         height="175px" width="175px"/>
+                                </a>
+                                <h3  th:text="${activities.get(index).getName()}"></h3>
+                            </div>
+                        </td>
+                        <td>
+                            <div th:if="${index + 1 lt activities.size()}">
+                                <a th:href="@{/activityPage(id=${index+1})}" class="btn-image">
+                                    <img th:src="${activities.get(index + 1).getImagePath()}" th:alt="${activities.get(index + 1).getImagePath()}" onclick=""
+                                         height="175px" width="175px"/>
+                                </a>
+                                <h3  th:text="${activities.get(index+1).getName()}"></h3>
+                            </div>
+                        </td>
+                        <td>
+                            <div th:if="${index + 2 lt activities.size()}">
+                                <a th:href="@{/activityPage(id=${index+2})}" class="btn-image">
+                                    <img th:src="${activities.get(index + 2).getImagePath()}" th:alt="${activities.get(index + 2).getImagePath()}" onclick=""
+                                         height="175px" width="175px"/>
+                                </a>
+                                <h3  th:text="${activities.get(index+2).getName()}"></h3>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

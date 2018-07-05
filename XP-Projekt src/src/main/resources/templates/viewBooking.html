@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    <title>View Booking</title>
+</head>
+<body>
+<div th:replace="fragments/menubar::menubar"/>
+<div class="container">
+
+    <h1 align="center">Reservationer</h1>
+
+            <form th:action="@{/viewBooking}" th:method="post" th:object="${searchBooking}">
+                <div class="form-group form-inline">
+                <input placeholder="Aktivitet" class="form-control" type="text" th:field="*{activity.name}" />
+                <input placeholder="Kontakt person" class="form-control" type="text" th:field="*{customer.customerName}" />
+            <input class="form-control" type="date" name="da" />
+                <input style="margin-bottom: 13px" type="submit" class="btn btn-primary" name="searchButton" value="Søg" />
+                </div>
+        </form>
+    <table class="table">
+        <tr>
+            <th>Aktivitet</th>
+            <th>Dato</th>
+            <th>Tidspunkt</th>
+            <th>Kontakt person</th>
+            <th></th>
+        </tr>
+        <tr th:each="bookingArray : ${booking}">
+            <td th:text="${bookingArray.activity.name}"></td>
+            <td th:text="${bookingArray.date.getDayOfMonth() + '/' + bookingArray.date.getMonthValue() + '-' + bookingArray.date.getYear()}"></td>
+            <td th:if="${bookingArray.date.getHour() gt 9}" th:text="${bookingArray.date.getHour() + ':' + bookingArray.date.getMinute()}"></td>
+            <td th:if="${bookingArray.date.getHour() lt 10}" th:text="${'0' + bookingArray.date.getHour() + ':' + bookingArray.date.getMinute()}"></td>
+            <td th:text="${bookingArray.customer.customerName}"></td>
+            <td>
+                <div class="btn-group btn-group-justified" style="width: 200px">
+                    <a class="btn btn-primary " th:href="@{/bookingdetails(id=${bookingArray.id})}">Detaljer</a>
+                    <a class="btn btn-danger" th:href="@{/deleteBooking(id=${bookingArray.id})}">Slet</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

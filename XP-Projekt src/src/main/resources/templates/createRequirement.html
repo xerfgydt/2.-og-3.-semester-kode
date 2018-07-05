@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Lav en ny kravs type</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="" th:href="@{colorscheme.css}"/>
+    </head>
+    <body>
+    <div th:replace="fragments/menubar::menubar"/>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- LAVET AF ANDREAS OG JONAS -->
+                    <h1>Lav en ny Kravstype</h1>
+
+                    <form class="" th:action="@{/createrequirement}" method="post">
+                        <div class="form-group">
+                            <label for="name">Titel:</label>
+                            <input  class="form-control" type="text" id="name" th:name="name"/>
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="opret krav"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

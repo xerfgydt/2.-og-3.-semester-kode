@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+</head>
+<body>
+
+    <div th:fragment="menubar">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand">Adventure Alley</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Aktiviteter</a></li>
+                    <li><a href="/viewBooking">Reservationer</a></li>
+                    <li><a href="/viewProducts">Produkter</a></li>
+                    <li><a href="/dailyincome">Daglig omsætning</a></li>
+                    <li><a href="/salesPage">Salgs side</a></li>
+                    <li class="ny" th:if="${isbookingpage}"><a href="/createbooking">Ny reservation</a></li>
+                    <li class="ny" th:if="${isactivitypage}"><a href="/createactivity">Ny aktivitet</a></li>
+                    <li class="ny" th:if="${isactivitypage}"><a href="/createInstructor">Ny instruktør</a></li>
+                    <li class="ny" th:if="${isactivitypage}"><a href="/createrequirement">Nyt krav</a></li>
+                    <li class="ny" th:if="${isProductsPage}"><a href="/createProduct">Nyt Produkt</a></li>
+                    <!--Edit og slet booking-->
+                    <li class="edit" th:if="${isactivitydetailspage}">
+                        <a th:href="@{/editActivity(id=${activity.id})}">Rediger</a>
+                    </li>
+                    <li class="slet" th:if="${isactivitydetailspage}">
+                        <a th:href="@{/deleteActivity(id=${activity.id})}">Slet</a>
+                    </li>
+                    <li class="edit" th:if="${isbookingdetailspage}"><a th:href="@{/editBooking(id=${booking.id})}">Rediger</a></li>
+                    <li class="slet" th:if="${isbookingdetailspage}"><a th:href="@{/deleteBooking(id=${booking.id})}">Slet</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+</body>
+</html>
