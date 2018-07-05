@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>About me</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/menu.css" th:href="@{menu.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/base.css" th:href="@{base.css}"/>
+    <link rel="stylesheet" type="text/css" href="../../static/contactInfo.css" th:href="@{contactInfo.css}"/>
+
+</head>
+<body>
+<div th:include="fragments/menu :: menu"></div>
+        <h1>About me</h1>
+        <p>Dr. Lisbeth Tofte Hemmingsen</p>
+
+        <p>Dr. Lisbeth Tofte has founded the independent consultancy, Drug Safety Consult. The focus is on patient
+            safety and QA services within pharmacovigilance,
+            PASS and clinical development to biotech and pharmaceutical companies,
+            academia and other institutions working in the health care business.</p>
+
+        <p>Dr. Lisbeth Tofte graduated from the Royal Dental University
+            of Copenhagen to join the pharmaceutical industry shortly after.</p>
+
+        <p>As Group Director of International Quality Assurance at Nycomed, Dr. Lisbeth Tofte held the global
+            responsibility for quality management of clinical development and pharmacovigilance and has been the driving
+            force behind quality systems and concepts established to facilitate compliance with GCP, GVP, and PAS
+            requirements both
+            centrally and across affiliates.</p>
+
+        <p>With more than 25 years' experience, Dr. Lisbeth Tofte has held responsibility for international development
+            programs in several therapeutic areas, working for GSK and NovoNordisk on novel chemical entities,
+            biosynthetic drugs, and human plasma products.</p>
+
+        <p>Dr. Lisbeth Tofte is author of articles and books. She is correspondent on Clinical and QA Advisor. She has
+            developed three levels of online Pharmacovigilance training for Brookwood Academy.
+            www.brookwoodtraining-online.net</p>
+
+        <p>Her easy to understand books on Pharmacovigliance, Data Protection, and Computer Validation are issued by
+            Canary Ltd,</p>
+    <div th:include="fragments/contactInfo :: contactInfo"></div>
+</body>
+</html>

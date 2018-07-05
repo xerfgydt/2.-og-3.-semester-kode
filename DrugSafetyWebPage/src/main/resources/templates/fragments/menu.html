@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/menu.css" th:href="@{menu.css}"/>
+    <link rel="stylesheet" type="text/css" href="../../static/base.css" th:href="@{base.css}"/>
+</head>
+<body>
+<div th:fragment="menu">
+    <img src="https://www.drugsafetyconsult.com/CustomerData/Files/Images/Archive/1-grafik/logo_3.png"/>
+    <nav class="navbar navbar-expand-sm bg-blue navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+            <ul class="nav navbar-nav menu">
+                <li><a th:href="@{index}">Home</a></li>
+                <li><a th:href="@{aboutMe}">About me</a></li>
+                <li><a th:href="@{aboutOrganization}">About the organization</a></li>
+                <li><a th:href="@{materials}">Materials</a></li>
+                <li><a th:href="@{qa}">Q/A</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

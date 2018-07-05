@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Q/A (Questions and answers)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/menu.css" th:href="@{menu.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/base.css" th:href="@{base.css}"/>
+    <link rel="stylesheet" type="text/css" href="../../static/contactInfo.css" th:href="@{contactInfo.css}"/>
+
+
+</head>
+<body>
+<div th:include="fragments/menu :: menu"></div>
+
+<ul th:each="qa : ${qaList}">
+    <li th:text="${qa.question}"></li>
+    <li th:text="${qa.answer}"></li>
+    <li th:text="${qa.date}"></li>
+</ul>
+<div th:include="fragments/contactInfo :: contactInfo"></div>
+</body>
+</html>
