@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Title</title>
+
+
+</head>
+<body>
+
+    <header>
+
+    </header>
+    <main>
+
+        <section class="createOpskrift">
+
+            <form th:action="@{/createO}" method="post" th:object="${opskrift}">
+
+                <input class="signup" type="text" th:field="*{title}" placeholder="Opskrift Titel"/>
+                <input class="signup" type="text" th:field="*{emne}" placeholder="Opskrift Emne"/>
+                <input class="signup" type="text" th:field="*{weight}" placeholder="Emne V&aelig;gt"/>
+                <input class="signup" type="text" th:field="*{tykkelse}" placeholder="Emne Tykkelse"/>
+                <input class="signup" type="text" th:field="*{e_bemærkning}" placeholder="Bem&aelig;rkninger Til Emnet"/>
+                <input class="signup" type="text" th:field="*{tid}" placeholder="Tiberednings Tid"/>
+                <input class="signup" type="text" th:field="*{temperatur}" placeholder="Tilberednings Temperatur"/>
+                <input class="signup" type="text" th:field="*{t_detaljer}" placeholder="Detaljer Omkring Tilberedning"/>
+
+                <input class="signup" type="submit" value="Tilf&oslash;j"/>
+
+            </form>
+
+        </section>
+
+        <section class="readOpskrifter">
+            <table>
+                <tr>
+                    <th>Titel</th>
+                    <th>Emne</th>
+                    <th>Karakter</th>
+                    <th>Knapper</th>
+                </tr>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <td th:text="${opskrift.title}"/>
+                    <td th:text="${opskrift.emne}"/>
+                    <td th:text="${opskrift.karakter}"/>
+                    <td >
+                        <a th:href="@{/homepage}">Se opskrift</a>
+                        <a th:href="@{/homepage}">Slet opskrift</a>   <!--(id=${blog.id})(user_id=${user.id})-->
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+</html>

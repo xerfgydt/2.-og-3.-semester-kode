@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Foodie-Log</title>
+
+    <link rel="stylesheet" href="overall.css" />
+    <div th:replace="fragments/header :: header-css" />
+    <style>
+        input.field{
+            width: 70%;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: 2px solid lavender;
+            padding: 10px;
+        }
+
+        input.submit{
+            padding: 3px 10px 3px;
+            border: 2px solid lavender;
+            background-color: blue;
+            color: white;
+        }
+        input:hover{
+            border: 2px solid gray;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div th:replace="fragments/header :: afterLogin"></div>
+    </header>
+    <main>
+        <section>
+            <h2>Tilføj Tilberedning</h2>
+            <form th:action="@{/create}" method="post" th:object="${tilberedning}">
+                <div align="center">
+                    <div>
+                        <input class="field" type="text"  placeholder="Emne"/> <!--th:field="*{emne}"-->
+                    </div>
+
+                    <div>
+                        <input class="field" type="text"  placeholder="Udskæring"/> <!--th:field="*{udskæring}"-->
+                    </div>
+
+                    <div>
+                        <input class="field" type="text"  placeholder="Vægt"/> <!--th:field="*{vægt}"-->
+                    </div>
+
+                    <div>
+                        <input class="field" type="text"  placeholder="Tykkelse"/> <!--th:field="*{tykkelse}"-->
+                    </div>
+
+                    <div>
+                        <input class="field" type="text"  placeholder="Temperatur"/> <!--th:field="*{temperatur}"-->
+                    </div>
+
+                    <div>
+                        <input class="field" type="text"  placeholder="Tid"/> <!--th:field="*{tid}"-->
+                    </div>
+
+                    <div align="left" style="width: 73%; padding: 10px;">
+                    <input class="submit" type="submit" value="Tilføj" />
+                    </div>
+
+                </div>
+            </form>
+        </section>
+        <section>
+            <h2>Mine Opskrifter</h2>
+            <table>
+                <tr>
+                    <th align="left">Opskrift Titel</th>
+                    <th>Vudering</th>
+                </tr>
+                <tr th:each="userOpskrift : ${opskrifter}" >
+                    <div th:if="${userOpskrift.fk_user_id} eq ${user.user_id}">
+                        <td th:text="${userOskrift.navn}"/>
+                        <td th:text="${userOskrift.vudering}"/>
+                        <td><a th:href="@{/details(id=${tilberedning.id)}">Se Detaljer</a></td>
+                    </div>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

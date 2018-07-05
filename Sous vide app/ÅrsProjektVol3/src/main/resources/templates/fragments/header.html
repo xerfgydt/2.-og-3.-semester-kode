@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <div th:fragment="header-css">
+        <style>
+
+            div.headPart1 {
+
+                margin: 0;
+                padding: 5px;
+                background-color: lawngreen;
+            }
+
+            div.headPart2 {
+
+                width: 55%;
+                margin: 3px auto;
+                padding: 0;
+
+            }
+
+            div.headPart3{
+
+                width: 55%;
+                margin: auto;
+                padding-bottom: 5px;
+
+            }
+
+            form.login {
+                display: inline-block;
+                padding: 5px;
+                background-color: lightgray;
+
+            }
+
+            input.login{
+                padding: 3px 10px 3px;
+                border: 1px solid white;
+            }
+
+            input.login:hover{
+                border: 1px solid gray;
+            }
+
+            a.signUp:hover{
+                border: 1px solid gray;
+            }
+
+        </style>
+    </div>
+
+</head>
+
+<div th:fragment="beforeLogin">
+    <div class="headPart1">
+    </div>
+    <div class="headPart2" align="right">
+        <form class="login" th:action="@{/login}" method="post" > <!--th:action="@{/login}" -->
+            <input class="login" type="text" name="username" placeholder="username"/>
+            <input class="login" type="password" name="password" placeholder="Password"/>
+            <input class="login" type="submit" value="Sign In" />
+            <a class="signUp" th:href="@{/registration}" style="background-color: blue; padding: 2px 10px 3px; border: 1px solid lightgray; color: white; " >Sign Up</a>
+        </form>
+
+    </div>
+    <div class="headPart3" align="left">
+        <a th:href="@{/}"><strong><h1 class="title">Foodie-Log</h1></strong></a>
+    </div>
+</div>
+
+<div th:fragment="afterLogin">
+    <div class="headPart1">
+    </div>
+    <div class="headPart2" align="right">
+        <a  th:href="@{/homepage}"><strong>Mine Tilberedninger</strong></a>
+        <a  th:href="@{/forum}"><strong>Forum</strong></a>
+        <a  th:href="@{/}"><strong>Log Out</strong></a>
+    </div>
+    <div class="headPart3" align="left">
+        <a th:href="@{/homepage}"><strong><h1>Foodie-Log</h1></strong></a>
+    </div>
+</div>
+
+<!-- sdfdsdfs -->
+
+<div th:fragment="registrering">
+    <div class="headPart1">
+    </div>
+    <div><pre>
+        </pre></div>
+    <div class="headPart3" align="left">
+        <a th:href="@{/}"><strong><h1>Foodie-Log</h1></strong></a>
+    </div>
+</div>
+
+
+</html>

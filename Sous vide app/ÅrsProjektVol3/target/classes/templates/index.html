@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Foodie-Log</title>
+
+    <link rel="stylesheet" href="overall.css" />
+    <div th:replace="fragments/table :: table-css" />
+    <div th:replace="fragments/header :: header-css" />
+
+    <style>
+
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div th:replace="fragments/header :: beforeLogin"></div>
+    </header>
+    <main>
+        <h2 align="center">Sous-vide Opskrifter</h2>
+        <section>
+            <h3>Med Oksekød</h3>
+
+            <table>
+                <div th:replace="fragments/table :: indexTable"></div>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <div th:if="${opskrift.emne} eq 'oksekød'">
+                        <div th:replace="fragments/table :: indexTable2"></div>
+                    </div>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Med Svinekød</h3>
+
+            <table>
+                <div th:replace="fragments/table :: indexTable"></div>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <div th:if="${opskrift.emne} eq 'svinekød'">
+                        <div th:replace="fragments/table :: indexTable2"></div>
+                    </div>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Med Lammekød</h3>
+
+            <table>
+                <div th:replace="fragments/table :: indexTable"></div>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <div th:if="${opskrift.emne} eq 'lammekød'">
+                        <div th:replace="fragments/table :: indexTable2"></div>
+                    </div>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Med Fjerkræ</h3>
+
+            <table>
+                <div th:replace="fragments/table :: indexTable"></div>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <div th:if="${opskrift.emne} eq 'fjerkræ'">
+                        <div th:replace="fragments/table :: indexTable2"></div>
+                    </div>
+                </tr>
+            </table>
+
+        </section>
+        <section>
+            <h3>Med Fisk</h3>
+
+            <table>
+                <div th:replace="fragments/table :: indexTable"></div>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <div th:if="${opskrift.emne} eq 'fisk'">
+                        <div th:replace="fragments/table :: indexTable2"></div>
+                    </div>
+                </tr>
+            </table>
+
+        </section>
+        <section>
+            <h3>Med Grøntsager</h3>
+
+            <table>
+                <div th:replace="fragments/table :: indexTable"></div>
+                <tr th:each="opskrift : ${opskrifter}">
+                    <div th:if="${opskrift.emne} eq 'grøntsager'">
+                        <div th:replace="fragments/table :: indexTable2"></div>
+                    </div>
+                </tr>
+            </table>
+
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:fragment="table-css">
+        <style>
+            th {
+                width: 20%;
+                margin: auto;
+            }
+
+
+
+        </style>
+    </div>
+</head>
+<body>
+    <div th:fragment="indexTable">
+        <tr>
+            <th>Udskæring</th>
+            <th>Vægt</th>
+            <th>Tykkelse</th>
+            <th>Temperatur</th>
+            <th>Tid</th>
+        </tr>
+    </div>
+
+    <div th:fragment="indexTable2">
+        <td th:text="${udskæring}"/>
+        <td th:text="${vægt}"/>
+        <td th:text="${tykkelse}"/>
+        <td th:text="${temperatur}"/>
+        <td th:text="${tid}"/>
+    </div>
+</body>
+</html>

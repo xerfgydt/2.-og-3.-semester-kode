@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <div th:fragment="header-css">
+
+        <style>
+
+            div.headPart1{
+
+                width: 70%;
+                margin: auto;
+                padding-bottom: 5px;
+
+
+            }
+
+            div.headPart3{
+                margin: 0;
+                padding: 5px;
+                background-color: lawngreen;
+
+
+            }
+
+            div.headPart2{
+                width: 70%;
+                margin: auto;
+
+
+            }
+
+            input{
+                display: inline-block;
+
+            }
+
+            h1{
+                display: inline-block;
+
+            }
+
+            a.sign{
+                padding: 5px;
+            }
+
+            a.h1{
+                padding: 10px 5px 5px 5px;
+            }
+
+
+        </style>
+
+    </div>
+
+</head>
+
+<div th:fragment="beforeLogin">
+
+    <div class="headPart1" align="right">
+
+        <form th:action="@{/login}" method="post" th:object="${user}">
+            <input class="login" type="text" name="username" placeholder="username"/>
+            <input class="login" type="password" name="password" placeholder="Password"/>
+            <input class="login" type="submit" value="Sign In" />
+            <a class="sign" th:href="@{/signUp}">sign up</a>
+        </form>
+    </div>
+    <div class="headPart2" align="left">
+        <a class="h1" th:href="@{/}"><h1>Foodie-log</h1></a>
+
+    </div>
+    <div class="headPart3">
+    </div>
+</div>
+
+<div th:fragment="signup">
+
+    <div class="headPart1" align="right">
+
+        <form th:action="@{/signUp}" method="post" th:object="${user}">
+
+            <input class="signup" type="text" th:field="*{username}" placeholder="Username"/>
+
+            <input class="signup" type="password" th:field="*{password}" placeholder="Password"/>
+
+            <input class="signup" type="text" th:field="*{email}" placeholder="Email"/>
+
+            <input class="signup" type="submit" value="Sign up" />
+
+        </form>
+    </div>
+    <div class="headPart2" align="left">
+        <a class="h1" th:href="@{/}"><h1>Foodie-log</h1></a>
+
+    </div>
+    <div class="headPart3">
+    </div>
+</div>
+
+
+
+
+
+</html>
