@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>index</title>
+
+
+    <div th:replace="fragments/headers :: header-css"/>
+    <div th:replace="fragments/footer :: footer-css"/>
+    <link rel="stylesheet" href="style.css" />
+
+
+    <style>
+
+
+        nav{
+            /*border: 1px solid red;*/
+            position: fixed;
+            top: 150px;
+            width: 10%;
+
+        }
+
+        table{
+            width: 95%;
+            margin: 10px auto;
+            /*border: 1px solid blue;*/
+        }
+
+
+        h2{
+            width: 95%;
+            margin: auto;
+            padding: 20px;
+            /*border: 1px solid green;*/
+        }
+
+        div.tommelregel{
+            width: 95%;
+            margin: auto;
+            background-color: whitesmoke;
+            color: gray;
+
+        }
+
+        pre {
+            width: 100%;
+            margin: auto;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        a.link{
+            /*border: 1px solid blue;*/
+            padding: 5px;
+            display: block;
+
+
+        }
+
+        a:hover{
+            background-color: lightgray;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+<header>
+    <div th:replace="fragments/headers :: beforeLogin"></div>
+</header>
+<main>
+    <nav>
+
+            <a class="link" href="#beef">OkseK&oslash;d</a>
+
+
+            <a class="link" href="#pig">SvineK&oslash;d</a>
+
+
+            <a class="link" href="#lame">LammeK&oslash;d</a>
+
+
+            <a class="link" href="#bird">Fjerkr&aelig;</a>
+
+
+            <a class="link" href="#fish">Fisk</a>
+
+
+            <a class="link" href="#green">Frugt og Gr&oslash;nt</a>
+
+
+    </nav>
+    <section id="beef">
+        <h2 align="center"> OkseK&oslash;d </h2>
+        <div class="tommelregel" align="center">
+                    <pre><i>
+Tommelfingerregel
+
+Meget r&oslash;dt: 48 °C
+R&oslash;dt: 54 °C
+Medium-R&oslash;d: 57 °C
+Medium: 62 °C
+Medium-Gennemstegt: 65 °C
+Gennemstegt: 72 °C
+                    </i></pre>
+        </div>
+        <table>
+                <tr>
+                    <th>Udsk&aelig;ring</th>
+
+                    <th>V&aelig;gt i kg</th>
+
+                    <th>Temperatur i celsius</th>
+
+                    <th>Tid i timer</th>
+
+                </tr>
+            <tr th:each="opskrift: ${opskrifter}" align="center">
+                 <div th:if="${opskrift.title} eq 'oksekød'">
+                     <td th:text="${opskrift.emne}"/>
+                     <td th:text="${opskrift.weight}"/>
+                     <td th:text="${opskrift.temperatur}"/>
+                     <td th:text="${opskrift.tid}"/>
+                 </div>
+                 </tr>
+        </table>
+    </section>
+    <section id="pig">
+        <h2 align="center"> SvineK&oslash;d </h2>
+        <div class="tommelregel" align="center">
+                    <pre ><i>
+Tommelfingerregel
+
+Rosa: 59 °C
+Egner sig bedst til m&oslash;rbrad, koteletter, kamsteg
+Svag rosa: 61 °C
+Egner sig til de fleste udsk&aelig;ringer
+Gennemstegt 65 °C
+Forarbejdede udsk&aelig;ringer som bacon, fl&aelig;sk, hamburgerryg og lignende smager bedst hvis de bliver gennemstegt
+                    </i></pre>
+        </div>
+        <table>
+            <tr>
+                <th>Udsk&aelig;ring</th>
+
+                <th>V&aelig;gt i kg</th>
+
+                <th>Temperatur i celsius</th>
+
+                <th>Tid i timer</th>
+
+            </tr>
+            <tr th:each="opskrift: ${opskrifter}" align="center">
+                <div th:if="${opskrift.title} eq 'svinekød'">
+                <td th:text="${opskrift.emne}"/>
+                <td th:text="${opskrift.weight}"/>
+                <td th:text="${opskrift.temperatur}"/>
+                <td th:text="${opskrift.tid}"/>
+                </div>
+            </tr>
+        </table>
+    </section>
+    <section id="lame">
+        <h2 align="center"> LammeK&oslash;d </h2>
+        <div class="tommelregel" align="center">
+                    <pre ><i>
+Tommelfingerregel
+
+Meget r&oslash;dt: 48 °C
+R&oslash;dt: 54 °C
+Medium-R&oslash;d: 57 °C
+Medium: 62 °C
+Medium-Gennemstegt: 65 °C
+Gennemstegt: 72 °C
+                    </i></pre>
+        </div>
+        <table>
+            <tr>
+                <th>Udsk&aelig;ring</th>
+
+                <th>V&aelig;gt i kg</th>
+
+                <th>Temperatur i celsius</th>
+
+                <th>Tid i timer</th>
+
+            </tr>
+            <tr th:each="opskrift: ${opskrifter}" align="center">
+                <div th:if="${opskrift.title} eq 'lammekød'">
+                <td th:text="${opskrift.emne}"/>
+                <td th:text="${opskrift.weight}"/>
+                <td th:text="${opskrift.temperatur}"/>
+                <td th:text="${opskrift.tid}"/>
+                </div>
+            </tr>
+        </table>
+    </section>
+    <section id="bird">
+        <h2 align="center"> Fjerkr&aelig; </h2>
+        <div class="tommelregel" align="center">
+                    <pre ><i>
+Det anbefales ikke at man tilbereder en hel fugl, da der er en stor luftlomme inde i fuglen.
+Dette vil g&oslash;re det stort set umuligt at tilberede den med sous vide-metoden.
+
+Alle udsk&aelig;ringer er i medium st&oslash;rrelse
+
+                    </i></pre>
+        </div>
+        <table>
+            <tr>
+                <th>Udsk&aelig;ring</th>
+
+                <th>V&aelig;gt i kg</th>
+
+                <th>Temperatur i celsius</th>
+
+                <th>Tid i timer</th>
+
+            </tr>
+            <tr th:each="opskrift: ${opskrifter}" align="center">
+                <div th:if="${opskrift.title} eq 'fjerkræ'">
+                <td th:text="${opskrift.emne}"/>
+                <td th:text="${opskrift.weight}"/>
+                <td th:text="${opskrift.temperatur}"/>
+                <td th:text="${opskrift.tid}"/>
+                </div>
+            </tr>
+        </table>
+    </section>
+    <section id="fish">
+        <h2 align="center"> Fisk </h2>
+        <div class="tommelregel" align="center">
+                    <pre ><i>
+Fisk er meget delikat. Derfor er det vigtigt, at man ikke giver det for meget.
+Tider og temperaturer herunder, er sat efter at fisken skal tilberedes under medium.
+                    </i></pre>
+        </div>
+        <table>
+            <tr>
+                <th>Udsk&aelig;ring</th>
+
+                <th>V&aelig;gt i kg</th>
+
+                <th>Temperatur i celsius</th>
+
+                <th>Tid i minutter</th>
+
+            </tr>
+            <tr th:each="opskrift: ${opskrifter}" align="center">
+                <div th:if="${opskrift.title} eq 'fisk'">
+                <td th:text="${opskrift.emne}"/>
+                <td th:text="${opskrift.weight}"/>
+                <td th:text="${opskrift.temperatur}"/>
+                <td th:text="${opskrift.tid}"/>
+                </div>
+            </tr>
+        </table>
+    </section>
+    <section id="green">
+        <h2 align="center"> Frugt og Gr&oslash;nt </h2>
+        <div class="tommelregel" align="center">
+                    <pre ><i>
+Alle udsk&aelig;ringer er i mellem st&oslash;rrelser
+                    </i></pre>
+        </div>
+        <table>
+            <tr>
+                <th>Udsk&aelig;ring</th>
+
+                <th>V&aelig;gt i kg</th>
+
+                <th>Temperatur i celsius</th>
+
+                <th>Tid i minutter</th>
+
+            </tr>
+            <tr th:each="opskrift: ${opskrifter}" align="center">
+                <div th:if="${opskrift.title} eq 'frugt'">
+                <td th:text="${opskrift.emne}"/>
+                <td th:text="${opskrift.weight}"/>
+                <td th:text="${opskrift.temperatur}"/>
+                <td th:text="${opskrift.tid}"/>
+                </div>
+            </tr>
+        </table>
+    </section>
+</main>
+<footer>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</footer>
+</body>
+</html>

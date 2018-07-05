@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Title</title>
+
+    <div th:replace="fragments/headers :: header-css"/>
+    <div th:replace="fragments/footer :: footer-css"/>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+
+
+        th{
+            width: 25%;
+            margin: auto;
+        }
+
+        table, tr{
+            width: 100%;
+            margin: auto;
+        }
+
+        div.emne{
+
+            margin-top: 30px;
+
+        }
+
+        div.tilberedning{
+
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div th:replace="fragments/headers :: afterLogin"></div>
+</header>
+<main>
+
+    <div style="width: 70%; margin: auto ">
+        <h1> Opdater Opskrift </h1>
+    </div>
+
+    <section>
+
+        <form th:action="@{/updateO(userId=${user.id}, opskriftId=${opskrift.id})}" method="post" th:object="${opskrift}">
+
+            <div align="center">
+            <input class="updateTitle" type="text" th:field="*{title}" placeholder="Opskrift Titel"/>
+            </div>
+
+
+
+            <div class="emne">
+            <div align="center">
+            <input class="update" type="text" th:field="*{emne}" placeholder="Opskrift Emne"/>
+            </div>
+
+            <div align="center">
+            <input class="update" type="text" th:field="*{weight}" placeholder="Emne V&aelig;gt"/>
+            </div>
+
+            <div align="center">
+            <input class="update" type="text" th:field="*{tykkelse}" placeholder="Emne Tykkelse"/>
+            </div>
+
+            <div align="center">
+            <textarea class="updateBemærkning" type="text" th:field="*{e_bemærkning}" placeholder="Bem&aelig;rkninger Til Emnet"/>
+            </div>
+            </div>
+
+
+
+            <div class="tilberedning">
+            <div align="center">
+            <input class="update" type="text" th:field="*{tid}" placeholder="Tiberednings Tid"/>
+            </div>
+
+            <div align="center">
+            <input class="update" type="text" th:field="*{temperatur}" placeholder="Tilberednings Temperatur"/>
+            </div>
+
+            <div align="center">
+            <textarea class="updateDataljer" type="text" th:field="*{t_detaljer}" placeholder="Detaljer Omkring Tilberedning"/>
+            </div>
+            </div>
+
+
+
+            <div class="vurdering">
+
+            <div align="center">
+                <input class="update" type="text" th:field="*{karakter}" placeholder="Opskrift Karakter"/>
+            </div>
+
+            <div align="center">
+                <textarea class="updateVurdering" type="text" th:field="*{vurdering}" placeholder="Opksrift Vurdering"/>
+            </div>
+            </div>
+
+
+            <div align="left">
+            <input class="update" type="submit" value="Opdater Opskrift" style="width: 20%; margin-bottom: 20px"/>
+            </div>
+
+        </form>
+
+    </section>
+</main>
+<footer>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</footer>
+</body>
+</html>

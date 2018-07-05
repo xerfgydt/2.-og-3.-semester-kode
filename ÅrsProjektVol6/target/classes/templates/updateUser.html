@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Title</title>
+    <div th:replace="fragments/headers :: header-css"/>
+    <div th:replace="fragments/footer :: footer-css"/>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+
+        input{
+            margin: 0;
+        }
+
+        p{
+            margin: 10px 0 0 0;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <div th:replace="fragments/headers :: afterLogin"></div>
+    </header>
+    <main>
+        <div style="width: 70%; margin: auto ">
+            <h1> Updater profil </h1>
+        </div>
+
+        <section>
+            <form th:action="@{/updateU(userId=${user.id})}" method="post" th:object="${user}">
+
+                <p> Username </p>
+            <div align="center">
+
+                <input class="update" type="text" th:field="*{username}" placeholder="Username"/>
+            </div>
+
+                <p> Password </p>
+            <div align="center">
+                <input class="update" type="text" th:field="*{password}" placeholder="Password"/>
+            </div>
+
+                <p> Email </p>
+            <div align="center">
+
+                <input class="update" type="text" th:field="*{email}" placeholder="Email"/>
+            </div>
+
+                <div align="left" style="margin: 10px 0;">
+                <input class="update" type="submit" value="Gem" style="width: 25%; margin: 0; "/>
+                </div>
+                <div align="right">
+                    <!--<a th:href="@{/deleteU(userId=${user.id})}">Slet profil</a>-->
+                    <a th:href="@{/deleteU(userId=${user.id})}" onclick="return confirm('Er du sikker på at du vil slette din profil?');">Slet profil</a>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+    <footer style="position: absolute; bottom: 0">
+
+        <div th:replace="fragments/footer :: footer"></div>
+
+    </footer>
+
+</body>
+</html>

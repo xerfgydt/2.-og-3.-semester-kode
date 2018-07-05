@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Foodie-log</title>
+    <div th:replace="fragments/headers :: header-css"/>
+    <div th:replace="fragments/footer :: footer-css"/>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+
+        div.readIndlæg1{
+            width: 70%;
+            margin: 10px auto;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        section.readIndlæg{
+            border: none;
+        }
+
+        div.readIndlæg2{
+            width: 90%;
+            margin: auto;
+        }
+        div.readIndlæg3{
+            border-bottom: 1px solid lightgray;
+        }
+
+        div.readKommentare1{
+
+            width: 90%;
+            margin: 10px 0 0 50px;
+        }
+
+        p{
+            font-size: x-small;
+            color: gray;
+            margin: 0;
+            display: inline-block;
+        }
+
+        h4.username1{
+            display: inline-block;
+            margin: 0 0 0 34px;
+        }
+
+        h4.username2{
+            margin: 0;
+            display: inline-block;
+
+        }
+
+        pre.kommentar{
+            width: 91%;
+            margin: 0;
+        }
+
+        textarea.writeKommentar{
+            width: 90%;
+            height: 40px;
+            margin: 0;
+        }
+
+        form.writeKommentar{
+            width: 90%;
+            margin: 10px 0 0 50px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div th:replace="fragments/headers :: afterLogin"></div>
+</header>
+<main class="forum">
+
+    <div style="width: 70%; margin: auto ">
+        <h1> Forum </h1>
+    </div>
+
+    <section class="createIndlæg">
+
+        <form th:action="@{/indlaeg(userId=${user.id})}" method="post" th:object="${indlaeg}">
+
+            <div>
+                <input class="indlæg" type="text" th:field="*{title}" placeholder="Indlæg Titel"/>
+            </div>
+            <div>
+                <textarea class="indlæg" type="text" th:field="*{tekst}" placeholder="Indlæg Tekst"/>
+            </div>
+            <div>
+                <input class="indlæg" type="submit" value="Post Indlæg" style="width: 20%; margin-bottom: 20px"/>
+            </div>
+        </form>
+
+    </section>
+
+    <section class="readIndlæg">
+
+        <div class="readIndlæg1" th:each="indlaeg : ${forum}">
+
+            <div th:if="${user.role} eq 'admin'" align="right">
+                <a th:href="@{/deleteI(inlaegId=${indlaeg.getId()}, userId=${user.id})}" onclick="return confirm('Er du sikker på at du vil slette dette Indlæg?');">X</a>
+            </div>
+
+            <h4 class="username1" th:text="${indlaeg.username}"/>
+            <p th:text="${indlaeg.dato}"/>
+
+            <div class="readIndlæg2">
+                <div class="readIndlæg3">
+                    <h3 th:text="${indlaeg.title}"/>
+                    <pre th:text="${indlaeg.tekst}"/>
+                </div>
+                <div class="readKommentare1" th:each="kommentar : ${indlaeg.getKommentareListe()}">
+
+                    <div th:if="${user.role} eq 'admin'" align="right">
+                        <a th:href="@{/deleteK(kommentarId=${kommentar.getId()}, userId=${user.id})}" onclick="return confirm('Er du sikker på at du vil slette denne Kommentar?');">X</a>
+                    </div>
+
+                    <h4 class="username2" th:text="${kommentar.username}"/>
+                    <p th:text="${kommentar.dato}" />
+                    <pre class="kommentar" th:text="${kommentar.tekst}"/>
+
+                </div>
+
+                <form class="writeKommentar" th:action="@{/kommentar(userId=${user.id}, indlaegId=${indlaeg.id})}" method="post" th:object="${kommentar}">
+                    <textarea class="writeKommentar" type="text" th:field="*{tekst}" placeholder="Skriv en kommentar"/>
+                    <div>
+                    <input type="submit" value="Post Kommentar" style="width: 25%; margin: 0; " />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</footer>
+</body>
+</html>
