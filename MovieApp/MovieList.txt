@@ -1,0 +1,10 @@
+Godfather, 1972, Drama, Marlon Brando, (1) Al Pacino, Don Vito Corleone, Michael Corleoene
+Lord of the Rings The Fellowship of The Ring, 2001, Fantasy,(2) Viggo Mortensen, Elijah Wood, Aragon, Frodo
+Lord of The Rings The Two Towers, 2002, Fantasy,(3) Viggo Mortensen, Elijah Wood, Aragon, Frodo
+Lord of the Rings Return of the King, 2003, Fantasy,(4) Viggo Mortensen, Elijah Wood, Aragon, Frodo
+The Usual Suspects, 1995, Mystery,(5) Kevin Spacey, Gabriel Byrne, Verbal, Kiaton
+K-PAX, 2001, Sci-Fi,(6) Kevin Spacey, Jeff Bridges, Prot, Dr.Mark Powell
+Alien, 1979, Sci-Fi,(7) Sigourney Weaver, Tom Skerritt, Ripley, Dallas
+Braveheart, 1995, Drama,(8) Mel Bigson, William Wallace
+Blade Runner, 1982, Sci-Fi,(9) Harrison Ford, Rick Deckard
+Jaws, 1975, Thriller,(10) Roy Scheider, Brody

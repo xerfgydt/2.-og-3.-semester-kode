@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>update blog</title>
+    <link rel="stylesheet"
+          href="/Users/rasmushecter/Documents/Datamatikker/Spring Applications/ModulOpgaveSC1 2/src/main/resources/static/style.css"
+          th:href="@{style.css}"/>
+
+</head>
+
+<body>
+
+
+    <form th:action="@{/updateB}" method="post" th:object="${blog}">
+
+        <input type="text" th:field="*{title}" placeholder="title"/>
+        <br>
+        </br>
+        <textarea th:field="*{body}" placeholder="body"/>
+        <br>
+        </br>
+        <input type="submit" value="Send" />
+
+    </form>
+
+
+</body>
+</html>

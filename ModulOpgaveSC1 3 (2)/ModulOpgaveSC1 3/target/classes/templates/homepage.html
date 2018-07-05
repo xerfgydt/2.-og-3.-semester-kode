@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>homepage</title>
+    <link rel="stylesheet"
+          href="/Users/rasmushecter/Documents/Datamatikker/Spring Applications/ModulOpgaveSC1 2/src/main/resources/static/style.css"
+          th:href="@{style.css}"/>
+</head>
+<body>
+
+    <a th:href="@{/delete(id=${user.id})}" >DELETE ACCOUNT</a>
+    <a th:href="@{/update(id=${user.id})}" >CHANCE PASSWORD</a>
+
+
+    <center>
+        <h1>
+            Velkommen Til Min Blog
+        </h1>
+    </center>
+
+    <div th:if="${user.role} eq 'admin'">
+        <a th:href="@{/createB(id=${user.id})}">CREATE NEW BLOG</a>
+
+    </div>
+
+    <tr th:each="blog: ${blogs}">
+
+        <h2 th:text="${blog.title}"/>
+        <p th:text="${blog.body}"/>
+        <td th:if="${user.role} eq 'admin'">
+            <a th:href="@{/deleteB(id=${blog.id})}">Delete</a>
+            <a th:href="@{/updateB(id=${blog.id})}" >UPDATE BLOG</a>
+        </td>
+
+        <p></p>
+        &nbsp;
+        <p></p>
+        &nbsp;
+        <p></p>
+        &nbsp;
+
+    </tr>
+
+
+
+
+
+</body>
+</html>
+
+<!--
+<tr th:each="user: ${users}">
+    <td th:text="${user.userId}"/>
+    <td th:text="${user.name}"/>
+    <td th:text="${user.email}"/>
+</tr>
+-->

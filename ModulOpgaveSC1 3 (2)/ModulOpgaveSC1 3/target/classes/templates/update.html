@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>update</title>
+    <link rel="stylesheet"
+          href="/Users/rasmushecter/Documents/Datamatikker/Spring Applications/ModulOpgaveSC1 2/src/main/resources/static/style.css"
+          th:href="@{style.css}"/>
+</head>
+<body>
+
+<form th:action="@{/update2(id=${user.id})}" method="post" >
+
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <center>
+        <h2>Type in old password</h2>
+    <input type="password"  name="password"  placeholder="Old Password" />
+    <br>
+    </br>
+        <h2>Type in new password</h2>
+    <input type="password" name="newPassword"  placeholder="New Password" />
+    <br>
+    </br>
+    <input type="submit" value="Update"/>
+    </center>
+</form>
+</body>
+</html>

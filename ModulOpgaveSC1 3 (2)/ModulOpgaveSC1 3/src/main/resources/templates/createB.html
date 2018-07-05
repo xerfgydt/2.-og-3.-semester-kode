@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Create Blog</title>
+</head>
+<body>
+
+    <form th:action="@{/createB}" method="post" th:object="${blog}">
+
+        <input type="text" th:field="*{title}" placeholder="title"/>
+            <br>
+            </br>
+        <textarea th:field="*{body}" placeholder="body"/>
+            <br>
+            </br>
+        <input type="submit" value="Send" />
+
+    </form>
+
+</body>
+</html>
